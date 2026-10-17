@@ -1,0 +1,31 @@
+2026-2027 FALL
+
+MOBILE PROGRAMMING
+
+PROJECT
+
+Ders kapsamında öğreneceğiniz mobil programlama özelliklerinin çoğunu kullanabileceğiniz bir proje istenmektedir. Bunun için aşağıdaki listeyle sınırlı kalmaksızın istenilen bir konu başlığında proje yazılabilir.
+
+Optik Kağıt okuyucu uygulaması.
+Adobe Scan benzeri Telefon kamerası ile Belge Tarama Uygulaması
+Kişisel Sekreter AI destekli kişinin günlük yaptığı işlerle alakalı not alan, hatırlatma yapan ve prosesleri yürüten uygulama.
+Teknokentteki firmalardan herhangi birinin talep ettiği bir mobil uygulama (GitHub reposu ekip dışında sadece benimle paylaşılabilir.)
+Puan Toplayıcı, Kullanıcının seçeceği ilgili alalarına göre internetteki aktif kampanya ve puanlama sistemlerini takip edip kullanıcının bunlardaki puan sistemlerinde ilerlemesini hızlandıran ve kolaylaştıran uygulama. (Ör. Microsft Rewards gibi) 
+Remote Control Cihazı. Bilgisayar veya bağlanılabilecek farklı bir IoT cihazının uzaktan yönetilmesi, veri gönderimi ve sensor verilerinin okunması gibi süreçleri yönetecek yazılım. Masaüstü sistemler için mouse, klavye , ekran görüntüsü ve dosya kopyalama gibi işlevlerin gerçeklenmesi. 
+NOT: Buradaki başlıklar eğer bitirme projesi olarak karşıma gelirse bitirme projeniz reddedilecektir.
+
+Projeler 1’den 5’e kadar istenilen sayıda kişiden oluşan gruplar şeklinde yapılacaktır. Her proje grubunun bir sorumlusu olacaktır ve bu aynı zamanda proje yöneticisidir. Projenin başından sonuna planlaması ve insan kaynağı yönetiminden sorumlu olacaktır. Projenizin içerisinde yapılacak iş kalemlerine göre bir organizasyon şeması belirlenmeli ve bu şemaya riayet edilmelidir. Proje sorumlusu projede çalışan her bir kişinin performansını kayıt altında tutacak ve proje sonunda raporlayacaktır. Projede bu rapor ve ilgili görevlerin başarı oranına göre proje çalışanları arasında puan farklılıkları oluşabilir.
+
+Her projede aşağıdaki özelliklerin sağlanması istenmektedir.
+
+Proje Başlığı, Kapsam ve İş Planı Dokümanı oluşturulması
+Proje Yürütücüsü ve Ekip Organizasyon Şemasının oluşturulması
+Proje için GitHub hesabı oluşturulması ve Public erişilebilir olması, Tüm ekip üyelerinin GitHub reposunda katkıda bulunan konumunda olması ve kodlama olarak yaptığı katkının en az %5 olması. (GitHub hesabı herhangi birinizin altında olabilir. Private projelerde ozgurcan.turna@iuc.edu.tr kullanıcısına görüntüleme izni vermeniz gerekir.)
+Proje için her hafta ilerleme raporu hazırlanması ve derste sunulması (Siz her hafta için hazırlayacaksınız. Sunumlar döngüsel size sıra gelince yapılacak 3 hafta da bir gibi)
+Projenin halkla ilişkiler sorumlusu olmalı ve tanıtım faaliyetleri yapılmalı (YouTube kanalı, Blog yazısı gibi) ve ilerleme raporlarına bu paylaşımlar işlenmeli
+Projenin SQLite ve Uzak sunucu depolama özelliklerinden en az birini veya her ikisini birden kullanacak formda olması gerekir.
+Vize haftasında ön prototip finallerden önceki son derste nihai uygulamanın sunumu sınıfta yapılacaktır. Sunum esnasında tüm öğrenciler soru sorabilir. Kaynak kod üzerinden soru sorulabilir. [Not: Final gönderimi Video çekimi üzerinden yapılır.]
+Proje bitiminde rapor sunulur. Süreç boyunca üretilen tüm dosyalar rapora dahil edilmelidir.
+(Opsiyonel) Uygulama GooglePlayStore, Huawei App Galery veya Apple Store mağazalarında yayınlanmalı
+ 
+
