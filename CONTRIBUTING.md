@@ -1,84 +1,84 @@
-# Katkı Kuralları
+# Contributing Rules
 
-Bu repoda çalışan herkes için kurallar. İlk commit'inden önce lütfen oku.
+Rules for everyone working on this repo. Please read before your first commit.
 
-## Temel kurallar
+## Golden rules
 
-1. **`main` dalına doğrudan push yok.** `main` her zaman derlenen ve çalışan halde kalmalı.
-2. **Her iş için ayrı branch.** Branch'ler küçük olsun, çabuk merge edilsin.
-3. **Her değişiklik Pull Request ile gelir** ve en az bir ekip arkadaşı tarafından incelenir.
-4. **`main`'i sık sık çek**, diğerlerinden uzaklaşma.
+1. **Never push directly to `main`.** `main` must always build and run.
+2. **One branch per task.** Keep branches small and merge them quickly.
+3. **Every change goes through a Pull Request** and is reviewed by at least one teammate.
+4. **Pull `main` often** so you don't drift away from the others.
 
-## Katkı oranı (önemli)
+## Contribution share (important)
 
-Ödev gereği her üye GitHub'da contributor olarak görünmeli ve kodun **en az %5'ini** yazmış olmalı.
-Bu oran GitHub istatistiklerinden ölçülür, o yüzden:
+The assignment requires every member to appear as a contributor on GitHub and to have written
+**at least 5%** of the code. This is measured from GitHub's statistics, so:
 
-- Herkes **kendi bilgisayarından, kendi hesabıyla** commit atar. Başkasının kodunu onun adına commit'leme.
-- Commit e-postan GitHub hesabına bağlı olmalı, yoksa commit'ler sana sayılmaz:
+- Everyone commits **from their own computer, with their own account**. Never commit someone else's code on their behalf.
+- Your commit email must be linked to your GitHub account, otherwise your commits won't count for you:
   ```bash
-  git config user.name  "<github-kullanıcı-adın>"
-  git config user.email "<GitHub hesabına bağlı e-posta>"
+  git config user.name  "<your-github-username>"
+  git config user.email "<email linked to your GitHub account>"
   ```
-  E-postanı gizlemek istersen GitHub → Settings → Emails sayfasındaki
-  `<id>+<kullanıcı>@users.noreply.github.com` adresini kullan.
+  To keep your email private, use the `<id>+<username>@users.noreply.github.com` address
+  from GitHub → Settings → Emails.
 
-## Branch isimleri
+## Branch naming
 
-| Önek        | Ne için                    | Örnek                    |
+| Prefix      | Use for                    | Example                  |
 |-------------|----------------------------|--------------------------|
-| `feature/`  | Yeni özellik               | `feature/login-screen`   |
-| `fix/`      | Hata düzeltme              | `fix/sqlite-migration`   |
-| `docs/`     | Sadece doküman / rapor     | `docs/hafta-07`          |
+| `feature/`  | New functionality          | `feature/login-screen`   |
+| `fix/`      | Bug fixes                  | `fix/sqlite-migration`   |
+| `docs/`     | Documentation / reports    | `docs/week-07`           |
 
-## Günlük akış
+## Daily workflow
 
 ```bash
-# 1. Güncel main'den başla
+# 1. Start from an up-to-date main
 git checkout main
 git pull
 
-# 2. Branch aç
-git checkout -b feature/<iş-adı>
+# 2. Create your branch
+git checkout -b feature/<task-name>
 
-# 3. Çalış, sonra commit at
+# 3. Work, then commit
 git status
-git add <dosya1> <dosya2>
-git commit -m "Kısa ve açık mesaj"
+git add <file1> <file2>
+git commit -m "Short, clear message"
 
-# 4. Push et (-u sadece ilk push'ta)
-git push -u origin feature/<iş-adı>
+# 4. Push (-u only on the first push)
+git push -u origin feature/<task-name>
 git push
 
-# 5. Gerekirse main'deki yenilikleri kendi branch'ine al
+# 5. Get the latest main into your branch when needed
 git pull origin main
 ```
 
-Sonra GitHub'da **"Compare & pull request"** butonuyla PR aç.
+Then open a Pull Request on GitHub with the **"Compare & pull request"** button.
 
-## Commit'ler
+## Commits
 
-- Bir commit, tek bir mantıklı değişiklik.
-- Mesaj neyi yaptığını söylesin: `Add note list screen`, `Fix crash on empty database`.
-- `git add .` yerine `git add <dosyalar>` kullan, yanlışlıkla dosya gitmesin.
-- Build çıktıları (`build/`, `.dart_tool/`) ve IDE dosyaları commit'lenmez.
+- One logical change per commit.
+- The message says what it does: `Add note list screen`, `Fix crash on empty database`.
+- Use `git add <files>` instead of `git add .` so you don't commit things by accident.
+- Build output (`build/`, `.dart_tool/`) and IDE files are not committed.
 
-## Pull Request'ler
+## Pull Requests
 
-- Başlık: değişikliğin kısa özeti.
-- Açıklama: PR şablonunu doldur (ne değişti, nasıl test edildi, varsa `Closes #<issue>`).
-- Review istemeden önce:
+- Title: short summary of the change.
+- Description: fill in the PR template (what changed, how it was tested, `Closes #<issue>` if any).
+- Before asking for review:
   ```bash
   flutter analyze
   dart format .
   flutter test
   ```
-  ve uygulamanın emülatörde açıldığından emin ol.
-- Onay gelince PR'ı açan kişi merge eder ve branch'i siler.
-- PR'lar haftalık raporda kimin ne yaptığını göstermek için de kullanılır. Haftalık rapora
-  o hafta merge edilen PR'ların linklerini ekle.
+  and make sure the app launches on the emulator.
+- After approval, the PR author merges and deletes the branch.
+- PRs also show who did what in the weekly reports. Add links to the PRs merged that week
+  to the weekly report.
 
-## Kod
+## Code
 
-Sunumda kaynak koddan soru gelebilir. Kod okunabilir olsun ve herkes kendi yazdığı kısmı
-anlatabilsin.
+Questions about the source code may come up during the presentation. Keep the code readable,
+and make sure everyone can explain the parts they wrote.

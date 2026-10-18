@@ -1,19 +1,19 @@
-## Ne değişti?
+## What changed?
 
-<!-- Kısaca bu PR'ın yaptığı işi yaz. -->
+<!-- Briefly describe what this PR does. -->
 
-## Nasıl test edildi?
+## How was it tested?
 
-<!-- Emülatörde hangi ekranı/akışı denedin? -->
+<!-- Which screen/flow did you try on the emulator? -->
 
-## Kontrol listesi
+## Checklist
 
-- [ ] `flutter analyze` hatasız
-- [ ] `dart format .` çalıştırıldı
-- [ ] `flutter test` geçiyor
-- [ ] Uygulama emülatörde açılıyor
-- [ ] Commit'ler kendi GitHub hesabıma bağlı e-posta ile atıldı
+- [ ] `flutter analyze` passes with no errors
+- [ ] `dart format .` was run
+- [ ] `flutter test` passes
+- [ ] The app launches on the emulator
+- [ ] Commits were made with the email linked to my GitHub account
 
-## İlgili issue
+## Related issue
 
-<!-- Varsa: Closes #<numara> -->
+<!-- If any: Closes #<number> -->
