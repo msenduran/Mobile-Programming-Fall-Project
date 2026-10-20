@@ -18,6 +18,7 @@ flutter.dev, so everything here can be traced back to the course material.
 | Localization | `flutter_localizations` + `intl` | 4 | Turkish and English. |
 | State management | `provider` + `ChangeNotifier` | 5 | The "Simple app state management" approach on flutter.dev. |
 | Local database | `sqflite` | 5 | `floor` (ORM) was also suggested in class but hasn't been updated in 2 years. We may try it later in a separate branch. |
+| IDs | `uuid` | – | Row ids that stay unique when we move to Firebase. |
 | Settings | `shared_preferences` | 5 | Current user, language and other small values. |
 | Networking | `http`, hand-written `fromJson` / `toJson` | 5 | No code generation, so every line can be explained. |
 | Remote backend | Firebase (Auth, Firestore) | 7 | Phase 2, for sync and chat. |
@@ -78,6 +79,7 @@ app/
 │   │       └── preferences_service.dart
 │   ├── ui/
 │   │   ├── core/                 # theme, shared widgets
+│   │   ├── home/                 # first screen, tabs for bills / balances / chat
 │   │   ├── house/                # create / join a house
 │   │   │   ├── view_models/
 │   │   │   └── widgets/
@@ -88,7 +90,7 @@ app/
 │   ├── routing/
 │   │   └── routes.dart           # route names and the route table
 │   ├── l10n/                     # app_tr.arb, app_en.arb
-│   └── utils/                    # money/date formatting, id generation
+│   └── utils/                    # money/date formatting, id generation (id.dart)
 └── test/                         # mirrors lib/
 ```
 
