@@ -19,6 +19,7 @@ flutter.dev, so everything here can be traced back to the course material.
 | State management | `provider` + `ChangeNotifier` | 5 | The "Simple app state management" approach on flutter.dev. |
 | Local database | `sqflite` | 5 | `floor` (ORM) was also suggested in class but hasn't been updated in 2 years. We may try it later in a separate branch. |
 | IDs | `uuid` | – | Row ids that stay unique when we move to Firebase. |
+| Tests | `flutter_test`, `sqflite_common_ffi` | – | `sqflite_common_ffi` runs the real SQLite tables on the computer in database tests. |
 | Settings | `shared_preferences` | 5 | Current user, language and other small values. |
 | Networking | `http`, hand-written `fromJson` / `toJson` | 5 | No code generation, so every line can be explained. |
 | Remote backend | Firebase (Auth, Firestore) | 7 | Phase 2, for sync and chat. |
@@ -66,7 +67,7 @@ app/
 │   ├── config/
 │   │   └── dependencies.dart     # which repository implementations are used
 │   ├── domain/
-│   │   └── models/               # house.dart, member.dart, bill.dart, payment.dart, message.dart
+│   │   └── models/               # house.dart, member.dart, bill.dart, bill_share.dart (message.dart in phase 2)
 │   ├── data/
 │   │   ├── repositories/
 │   │   │   ├── house/            # house_repository.dart, house_repository_sqlite.dart
@@ -141,17 +142,26 @@ These rules are there so the move to Firebase in phase 2 is an addition, not a r
 - **Schema changes bump the database version** in `app_database.dart` and add a migration step in
   `onUpgrade`. Never edit an existing `CREATE TABLE` in a way that breaks installed apps.
 
-First draft of the tables (will change as we build):
+Tables (database version 1, defined in `app_database.dart`):
 
-| Table | Main columns |
-|---|---|
-| `houses` | `id`, `name`, `invite_code`, `created_at` |
-| `members` | `id`, `house_id`, `name`, `created_at` |
-| `bills` | `id`, `house_id`, `title`, `category`, `amount_kurus`, `due_date`, `created_by`, `created_at` |
-| `bill_shares` | `bill_id`, `member_id`, `amount_kurus`, `paid_at` (null = not paid) |
-| `messages` | `id`, `house_id`, `member_id`, `text`, `sent_at` (phase 2) |
+| Table | Main columns | Model |
+|---|---|---|
+| `houses` | `id`, `name`, `invite_code` (unique), `created_at` | `House` |
+| `members` | `id`, `house_id`, `name`, `created_at` | `Member` |
+| `bills` | `id`, `house_id`, `title`, `category`, `amount_kurus`, `due_date`, `paid_by` (null = not paid yet), `created_by`, `created_at` | `Bill` |
+| `bill_shares` | `bill_id` + `member_id` (primary key), `amount_kurus`, `paid_at` (null = still owes) | `BillShare` |
+| `messages` | `id`, `house_id`, `member_id`, `text`, `sent_at` (phase 2) | – |
 
-Balances ("who owes whom") are calculated from `bills` and `bill_shares`; they are not stored.
+How a bill is paid: one member pays the whole bill and becomes `paid_by`. Every other member then
+owes their share to that member until their `bill_shares.paid_at` is set. The payer's own share
+counts as paid. Shares are made with `splitEvenly` in `utils/money.dart`, which gives leftover
+kuruş to the first members so the shares always add up to the bill.
+
+Deleting a house deletes its members, bills and shares (`ON DELETE CASCADE`). Balances ("who owes
+whom") are calculated from `bills` and `bill_shares`; they are not stored.
+
+Models are plain classes with `toMap()` / `fromMap()` that use the column names above. Enums such
+as `BillCategory` are stored by name (`'electricity'`), not by index, so reordering them is safe.
 
 ## State management rules
 
