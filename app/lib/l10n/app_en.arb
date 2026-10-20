@@ -1,5 +1,13 @@
 {
   "@@locale": "en",
   "appTitle": "Öğrenci Evim",
-  "homeWelcome": "Welcome to Öğrenci Evim!"
+  "tabBills": "Bills",
+  "tabBalances": "Balances",
+  "tabChat": "Chat",
+  "billsEmptyTitle": "No bills yet",
+  "billsEmptyMessage": "Rent and bills will be listed here: amount, due date and who paid.",
+  "balancesEmptyTitle": "No debts",
+  "balancesEmptyMessage": "Who owes whom will be shown here.",
+  "chatEmptyTitle": "House chat",
+  "chatEmptyMessage": "You will be able to message your housemates here."
 }

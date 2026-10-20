@@ -1,5 +1,13 @@
 {
   "@@locale": "tr",
   "appTitle": "Öğrenci Evim",
-  "homeWelcome": "Öğrenci Evim'e hoş geldin!"
+  "tabBills": "Faturalar",
+  "tabBalances": "Borçlar",
+  "tabChat": "Sohbet",
+  "billsEmptyTitle": "Henüz fatura yok",
+  "billsEmptyMessage": "Kira ve faturalar burada listelenecek: tutarı, son ödeme tarihi ve kimin ödediği.",
+  "balancesEmptyTitle": "Borç yok",
+  "balancesEmptyMessage": "Kimin kime ne kadar borcu olduğu burada görünecek.",
+  "chatEmptyTitle": "Ev sohbeti",
+  "chatEmptyMessage": "Ev arkadaşlarınla burada yazışabileceksin."
 }
