@@ -104,11 +104,59 @@ abstract class AppLocalizations {
   /// **'Öğrenci Evim'**
   String get appTitle;
 
-  /// No description provided for @homeWelcome.
+  /// No description provided for @tabBills.
   ///
   /// In tr, this message translates to:
-  /// **'Öğrenci Evim\'e hoş geldin!'**
-  String get homeWelcome;
+  /// **'Faturalar'**
+  String get tabBills;
+
+  /// No description provided for @tabBalances.
+  ///
+  /// In tr, this message translates to:
+  /// **'Borçlar'**
+  String get tabBalances;
+
+  /// No description provided for @tabChat.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sohbet'**
+  String get tabChat;
+
+  /// No description provided for @billsEmptyTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Henüz fatura yok'**
+  String get billsEmptyTitle;
+
+  /// No description provided for @billsEmptyMessage.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kira ve faturalar burada listelenecek: tutarı, son ödeme tarihi ve kimin ödediği.'**
+  String get billsEmptyMessage;
+
+  /// No description provided for @balancesEmptyTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Borç yok'**
+  String get balancesEmptyTitle;
+
+  /// No description provided for @balancesEmptyMessage.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kimin kime ne kadar borcu olduğu burada görünecek.'**
+  String get balancesEmptyMessage;
+
+  /// No description provided for @chatEmptyTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Ev sohbeti'**
+  String get chatEmptyTitle;
+
+  /// No description provided for @chatEmptyMessage.
+  ///
+  /// In tr, this message translates to:
+  /// **'Ev arkadaşlarınla burada yazışabileceksin.'**
+  String get chatEmptyMessage;
 }
 
 class _AppLocalizationsDelegate
