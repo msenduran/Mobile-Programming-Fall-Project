@@ -1,6 +1,8 @@
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 
+import '../data/repositories/bill/bill_repository.dart';
+import '../data/repositories/bill/bill_repository_sqlite.dart';
 import '../data/repositories/house/house_repository.dart';
 import '../data/repositories/house/house_repository_sqlite.dart';
 import '../data/services/database/app_database.dart';
@@ -14,8 +16,7 @@ List<SingleChildWidget> get providers => [
   Provider<HouseRepository>(
     create: (context) => HouseRepositorySqlite(context.read<AppDatabase>()),
   ),
-  // More repositories go here, for example:
-  // Provider<BillRepository>(
-  //   create: (context) => BillRepositorySqlite(context.read<AppDatabase>()),
-  // ),
+  Provider<BillRepository>(
+    create: (context) => BillRepositorySqlite(context.read<AppDatabase>()),
+  ),
 ];
