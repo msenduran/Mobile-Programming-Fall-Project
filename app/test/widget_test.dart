@@ -4,10 +4,15 @@ import 'package:provider/provider.dart';
 import 'package:ogrenci_evim/app.dart';
 import 'package:ogrenci_evim/config/dependencies.dart';
 
+import 'data/services/fake_notification_service.dart';
+
 void main() {
   testWidgets('App starts on the bills tab and switches tabs', (tester) async {
     await tester.pumpWidget(
-      MultiProvider(providers: providers, child: const OgrenciEvimApp()),
+      MultiProvider(
+        providers: providers(FakeNotificationService()),
+        child: const OgrenciEvimApp(),
+      ),
     );
     await tester.pumpAndSettle();
 

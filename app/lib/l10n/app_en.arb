@@ -9,5 +9,8 @@
   "balancesEmptyTitle": "No debts",
   "balancesEmptyMessage": "Who owes whom will be shown here.",
   "chatEmptyTitle": "House chat",
-  "chatEmptyMessage": "You will be able to message your housemates here."
+  "chatEmptyMessage": "You will be able to message your housemates here.",
+  "billReminderTitle": "Due tomorrow: {title}",
+  "billReminderBody": "Don't forget to pay it.",
+  "billReminderChannelName": "Bill reminders"
 }

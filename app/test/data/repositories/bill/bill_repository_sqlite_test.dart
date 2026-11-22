@@ -5,6 +5,8 @@ import 'package:ogrenci_evim/data/services/database/app_database.dart';
 import 'package:ogrenci_evim/domain/models/bill.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 
+import '../../services/fake_notification_service.dart';
+
 void main() {
   // Same setup as app_database_test.dart: desktop sqflite with a fresh
   // in-memory database for each test.
@@ -14,11 +16,17 @@ void main() {
   const members = ['ayse', 'mehmet', 'samet'];
 
   late AppDatabase appDatabase;
+  late FakeNotificationService notifications;
   late BillRepository repository;
 
   setUp(() async {
     appDatabase = AppDatabase(path: inMemoryDatabasePath);
-    repository = BillRepositorySqlite(appDatabase, clock: () => now);
+    notifications = FakeNotificationService();
+    repository = BillRepositorySqlite(
+      appDatabase,
+      notifications,
+      clock: () => now,
+    );
 
     // Bills need a house and members because of the foreign keys.
     final db = await appDatabase.database;
@@ -93,6 +101,46 @@ void main() {
       await expectLater(add, throwsA(isA<DatabaseException>()));
       expect(await repository.getBills('h1'), isEmpty);
       expect(await repository.getShares('b1'), isEmpty);
+      expect(notifications.scheduled, isEmpty);
+    });
+  });
+
+  group('reminders', () {
+    test('adding an unpaid bill schedules its reminder', () async {
+      await repository.addBill(bill('b1'), members);
+
+      expect(notifications.scheduled, {'b1'});
+    });
+
+    test('adding a bill that is already paid schedules nothing', () async {
+      await repository.addBill(bill('b1', paidBy: 'ayse'), members);
+
+      expect(notifications.scheduled, isEmpty);
+    });
+
+    test('paying the bill cancels its reminder', () async {
+      await repository.addBill(bill('b1'), members);
+      await repository.addBill(bill('b2'), members);
+
+      await repository.markBillPaid('b1', 'mehmet');
+
+      expect(notifications.scheduled, {'b2'});
+    });
+
+    test('paying only a share keeps the reminder', () async {
+      await repository.addBill(bill('b1'), members);
+
+      await repository.markSharePaid('b1', 'mehmet');
+
+      expect(notifications.scheduled, {'b1'});
+    });
+
+    test('deleting the bill cancels its reminder', () async {
+      await repository.addBill(bill('b1'), members);
+
+      await repository.deleteBill('b1');
+
+      expect(notifications.scheduled, isEmpty);
     });
   });
 

@@ -4,15 +4,23 @@ import '../../../domain/models/bill.dart';
 import '../../../domain/models/bill_share.dart';
 import '../../../utils/money.dart';
 import '../../services/database/app_database.dart';
+import '../../services/notification_service.dart';
 import 'bill_repository.dart';
 
 /// [BillRepository] that stores bills and shares in SQLite.
+///
+/// It also keeps the due date reminders in sync: a reminder is scheduled when
+/// a bill is added and cancelled when the bill is paid or deleted.
 class BillRepositorySqlite implements BillRepository {
   /// [clock] is only given in tests, to control the time saved in `paid_at`.
-  BillRepositorySqlite(this._appDatabase, {DateTime Function()? clock})
-    : _clock = clock ?? DateTime.now;
+  BillRepositorySqlite(
+    this._appDatabase,
+    this._notifications, {
+    DateTime Function()? clock,
+  }) : _clock = clock ?? DateTime.now;
 
   final AppDatabase _appDatabase;
+  final NotificationService _notifications;
   final DateTime Function() _clock;
 
   int get _nowMillis => _clock().toUtc().millisecondsSinceEpoch;
@@ -45,6 +53,8 @@ class BillRepositorySqlite implements BillRepository {
         await _markShareAsPaid(txn, bill.id, bill.paidBy!);
       }
     });
+    // Only after the bill is saved; it does nothing for a paid bill.
+    await _notifications.scheduleBillReminder(bill);
   }
 
   @override
@@ -83,6 +93,7 @@ class BillRepositorySqlite implements BillRepository {
       );
       await _markShareAsPaid(txn, billId, memberId);
     });
+    await _notifications.cancelBillReminder(billId);
   }
 
   @override
@@ -111,5 +122,6 @@ class BillRepositorySqlite implements BillRepository {
     final db = await _appDatabase.database;
     // Its shares are deleted by ON DELETE CASCADE (see app_database.dart).
     await db.delete('bills', where: 'id = ?', whereArgs: [billId]);
+    await _notifications.cancelBillReminder(billId);
   }
 }
