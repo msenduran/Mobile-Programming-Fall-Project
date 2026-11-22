@@ -7,6 +7,7 @@ import '../data/repositories/house/house_repository.dart';
 import '../data/repositories/house/house_repository_sqlite.dart';
 import '../data/services/database/app_database.dart';
 import '../data/services/notification_service.dart';
+import '../data/services/preferences_service.dart';
 
 /// Every object the app shares through provider is registered here.
 ///
@@ -18,6 +19,7 @@ import '../data/services/notification_service.dart';
 List<SingleChildWidget> providers(NotificationService notificationService) => [
   Provider<AppDatabase>(create: (_) => AppDatabase()),
   Provider<NotificationService>.value(value: notificationService),
+  Provider<PreferencesService>(create: (_) => PreferencesService()),
   Provider<HouseRepository>(
     create: (context) => HouseRepositorySqlite(context.read<AppDatabase>()),
   ),
