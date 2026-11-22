@@ -67,7 +67,8 @@ app/
 │   ├── config/
 │   │   └── dependencies.dart     # which repository implementations are used
 │   ├── domain/
-│   │   └── models/               # house.dart, member.dart, bill.dart, bill_share.dart (message.dart in phase 2)
+│   │   ├── debt_calculator.dart  # calculateDebts: who owes whom (pure function, no database)
+│   │   └── models/               # house.dart, member.dart, bill.dart, bill_share.dart, debt.dart (message.dart in phase 2)
 │   ├── data/
 │   │   ├── repositories/
 │   │   │   ├── house/            # house_repository.dart, house_repository_sqlite.dart
