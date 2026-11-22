@@ -157,6 +157,24 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'Ev arkadaşlarınla burada yazışabileceksin.'**
   String get chatEmptyMessage;
+
+  /// Notification title one day before a bill is due
+  ///
+  /// In tr, this message translates to:
+  /// **'Yarın son gün: {title}'**
+  String billReminderTitle(String title);
+
+  /// No description provided for @billReminderBody.
+  ///
+  /// In tr, this message translates to:
+  /// **'Ödemeyi unutma.'**
+  String get billReminderBody;
+
+  /// No description provided for @billReminderChannelName.
+  ///
+  /// In tr, this message translates to:
+  /// **'Fatura hatırlatmaları'**
+  String get billReminderChannelName;
 }
 
 class _AppLocalizationsDelegate

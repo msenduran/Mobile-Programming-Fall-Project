@@ -9,5 +9,17 @@
   "balancesEmptyTitle": "Borç yok",
   "balancesEmptyMessage": "Kimin kime ne kadar borcu olduğu burada görünecek.",
   "chatEmptyTitle": "Ev sohbeti",
-  "chatEmptyMessage": "Ev arkadaşlarınla burada yazışabileceksin."
+  "chatEmptyMessage": "Ev arkadaşlarınla burada yazışabileceksin.",
+  "billReminderTitle": "Yarın son gün: {title}",
+  "@billReminderTitle": {
+    "description": "Notification title one day before a bill is due",
+    "placeholders": {
+      "title": {
+        "type": "String",
+        "example": "Kasım elektrik"
+      }
+    }
+  },
+  "billReminderBody": "Ödemeyi unutma.",
+  "billReminderChannelName": "Fatura hatırlatmaları"
 }

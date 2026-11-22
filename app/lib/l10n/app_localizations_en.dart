@@ -40,4 +40,15 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get chatEmptyMessage =>
       'You will be able to message your housemates here.';
+
+  @override
+  String billReminderTitle(String title) {
+    return 'Due tomorrow: $title';
+  }
+
+  @override
+  String get billReminderBody => 'Don\'t forget to pay it.';
+
+  @override
+  String get billReminderChannelName => 'Bill reminders';
 }

@@ -22,6 +22,7 @@ flutter.dev, so everything here can be traced back to the course material.
 | Tests | `flutter_test`, `sqflite_common_ffi` | – | `sqflite_common_ffi` runs the real SQLite tables on the computer in database tests. |
 | Settings | `shared_preferences` | 5 | Current user, language and other small values. |
 | Networking | `http`, hand-written `fromJson` / `toJson` | 5 | No code generation, so every line can be explained. |
+| Reminders | `flutter_local_notifications` + `timezone` | – | The most used local notification package; it can schedule a notification for a date even when the app is closed. `timezone` gives the 10:00 Istanbul time. We use 22.x because 23.0 had just come out. Inexact scheduling, so no "alarms & reminders" permission is needed. |
 | Remote backend | Firebase (Auth, Firestore) | 7 | Phase 2, for sync and chat. |
 
 **Not used on purpose:** `go_router`, `freezed`, `json_serializable`, BLoC, Riverpod. They are good
