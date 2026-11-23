@@ -12,5 +12,11 @@
   "chatEmptyMessage": "You will be able to message your housemates here.",
   "billReminderTitle": "Due tomorrow: {title}",
   "billReminderBody": "Don't forget to pay it.",
-  "billReminderChannelName": "Bill reminders"
+  "billReminderChannelName": "Bill reminders",
+  "categoryRent": "Rent",
+  "categoryElectricity": "Electricity",
+  "categoryWater": "Water",
+  "categoryGas": "Gas",
+  "categoryInternet": "Internet",
+  "categoryOther": "Other"
 }

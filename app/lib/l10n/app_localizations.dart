@@ -175,6 +175,42 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'Fatura hatırlatmaları'**
   String get billReminderChannelName;
+
+  /// No description provided for @categoryRent.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kira'**
+  String get categoryRent;
+
+  /// No description provided for @categoryElectricity.
+  ///
+  /// In tr, this message translates to:
+  /// **'Elektrik'**
+  String get categoryElectricity;
+
+  /// No description provided for @categoryWater.
+  ///
+  /// In tr, this message translates to:
+  /// **'Su'**
+  String get categoryWater;
+
+  /// No description provided for @categoryGas.
+  ///
+  /// In tr, this message translates to:
+  /// **'Doğalgaz'**
+  String get categoryGas;
+
+  /// No description provided for @categoryInternet.
+  ///
+  /// In tr, this message translates to:
+  /// **'İnternet'**
+  String get categoryInternet;
+
+  /// No description provided for @categoryOther.
+  ///
+  /// In tr, this message translates to:
+  /// **'Diğer'**
+  String get categoryOther;
 }
 
 class _AppLocalizationsDelegate
