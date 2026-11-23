@@ -51,4 +51,22 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get billReminderChannelName => 'Bill reminders';
+
+  @override
+  String get categoryRent => 'Rent';
+
+  @override
+  String get categoryElectricity => 'Electricity';
+
+  @override
+  String get categoryWater => 'Water';
+
+  @override
+  String get categoryGas => 'Gas';
+
+  @override
+  String get categoryInternet => 'Internet';
+
+  @override
+  String get categoryOther => 'Other';
 }

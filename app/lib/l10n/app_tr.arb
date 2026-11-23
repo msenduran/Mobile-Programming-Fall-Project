@@ -21,5 +21,11 @@
     }
   },
   "billReminderBody": "Ödemeyi unutma.",
-  "billReminderChannelName": "Fatura hatırlatmaları"
+  "billReminderChannelName": "Fatura hatırlatmaları",
+  "categoryRent": "Kira",
+  "categoryElectricity": "Elektrik",
+  "categoryWater": "Su",
+  "categoryGas": "Doğalgaz",
+  "categoryInternet": "İnternet",
+  "categoryOther": "Diğer"
 }

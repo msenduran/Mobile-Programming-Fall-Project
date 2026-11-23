@@ -51,4 +51,22 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get billReminderChannelName => 'Fatura hatırlatmaları';
+
+  @override
+  String get categoryRent => 'Kira';
+
+  @override
+  String get categoryElectricity => 'Elektrik';
+
+  @override
+  String get categoryWater => 'Su';
+
+  @override
+  String get categoryGas => 'Doğalgaz';
+
+  @override
+  String get categoryInternet => 'İnternet';
+
+  @override
+  String get categoryOther => 'Diğer';
 }
